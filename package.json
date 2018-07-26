@@ -1,0 +1,10 @@
+{
+  "name": "@dacrol/stopwatch",
+  "version": "1.0.0",
+  "description": "High accuracy stopwatch for node and browsers",
+  "main": "stopwatch.js",
+  "repository": "https://github.com/Dacrol/stopwatch.git",
+  "author": "Dacrol <jonas.ahrens@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
