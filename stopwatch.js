@@ -43,7 +43,7 @@ class Stopwatch {
     return this.end
   }
 
-  static async test(
+  static test(
     callback,
     loops = 1,
     { preparation = undefined, silent = false, label = '' } = {}
@@ -53,7 +53,7 @@ class Stopwatch {
     const sw = new Stopwatch()
     sw.start()
     for (let index = 0; index < loops; index++) {
-      await callback(index, preparedData)
+      callback(index, preparedData)
     }
     let total = sw.end()
     // @ts-ignore
