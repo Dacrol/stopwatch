@@ -71,7 +71,7 @@ class Stopwatch {
     return [total, average]
   }
 
-  static decorate(fn, { label = '', queue = false } = {}) {
+  static decorate(fn, { label = '', queueLog = false } = {}) {
     return (...args) => {
       const sw = new Stopwatch()
       sw.start()
@@ -85,7 +85,7 @@ class Stopwatch {
             ' ms'
         )
       }
-      if (!queue) {
+      if (!queueLog) {
         logFn()
       } else {
         setImmediate(logFn)
