@@ -71,6 +71,34 @@ class Stopwatch {
     return [total, average]
   }
 
+  static async testAsync(
+    callback,
+    loops = 1,
+    { preparation = undefined, silent = false, label = '' } = {}
+  ) {
+    const preparedData =
+      typeof preparation === 'function' ? preparation() : preparation
+    const sw = new Stopwatch()
+    sw.start()
+    for (let index = 0; index < loops; index++) {
+      await callback(index, preparedData)
+    }
+    let total = sw.end()
+    // @ts-ignore
+    let average = total / loops
+    if (!silent) {
+      console.log(
+        (label ? '\x1b[36m' + label + ': \x1b[0m' : '') +
+          'Average: ' +
+          average +
+          ' ms, total: ' +
+          total +
+          ' ms'
+      )
+    }
+    return [total, average]
+  }
+
   static decorate(fn, { label = '', queueLog = false } = {}) {
     return (...args) => {
       const sw = new Stopwatch()
