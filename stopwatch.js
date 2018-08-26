@@ -45,8 +45,7 @@ class Stopwatch {
 
   static test(
     callback,
-    loops = 1,
-    { preparation = undefined, silent = false, label = '' } = {}
+    { loops = 1, preparation = undefined, silent = false, label = '' } = {}
   ) {
     const preparedData =
       typeof preparation === 'function' ? preparation() : preparation
@@ -73,8 +72,7 @@ class Stopwatch {
 
   static async testAsync(
     callback,
-    loops = 1,
-    { preparation = undefined, silent = false, label = '' } = {}
+    { loops = 1, preparation = undefined, silent = false, label = '' } = {}
   ) {
     const preparedData =
       typeof preparation === 'function' ? preparation() : preparation
